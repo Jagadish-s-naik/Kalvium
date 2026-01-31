@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment | Special Calculator</title>
+</head>
+
+<body style="font-size: 30px;">
+    <h1>SpecialCalculator</h1>
+    <hr>
+    <h2>
+        <ol>
+            <li>specialAddition</li>
+            <li>simpleDivision</li>
+            <li>specialCalculator</li>
+        </ol>
+    </h2>
+    <hr>
+
+
+    <script>
+
+        function specialAddition(numberOne, numberTwo) {
+            if (numberOne < 0 || numberTwo < 0) {
+                return "Negative numbers are not allowed";
+            }
+            return numberOne - numberTwo;
+        }
+
+
+        function simpleDivision(numberOne, numberTwo) {
+
+            if (numberOne < 0 || numberTwo < 0) {
+                return "Negative numbers are not allowed";
+            }
+            if (numberOne < numberTwo) {
+                return "Cannot divide a smaller number by a larger number";
+            }
+            return numberOne / numberTwo;
+        }
+
+        function specialCalculator(numberOne, numberTwo, operation) {
+            return operation(numberOne, numberTwo);
+        }
+
+    </script>
+</body>
+
+</html>

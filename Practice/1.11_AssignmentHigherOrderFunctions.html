@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment | Higher Order Functions</title>
+</head>
+
+<body style="font-size: 30px;">
+
+    <h1> Assignment | Higher Order Functions</h1>
+    <hr>
+    <div>
+        <h2>Given data </h2><br>
+        const foods = ["pizza", "burger", "fingerChips", "donuts", "springRoll"];<br>
+        const numberArray = [12, 324, 213, 4, 2, 3, 45, 4234];<br>
+        const myArray = [11, 34, 20, 5, 53, 16];<br>
+    </div>
+    <hr>
+    <h2> Functions used </h2>
+    <ol>
+        <li>slice(start, end)</li>
+        <li>spliced() which uses splice(start, toRemove, "...Values");</li>
+        <li>isEven(number)</li>
+        <li>isPrime(number)</li>
+        <li>checkNumber(numberArray, operation) //Filter Method</li>
+        <li>reject(numberArray, operation) custom function that is created using !operation(item)</li>
+        <li>nonPrime(numberArray)</li>
+        <li>isEvenUsingLambda</li>
+        <li>square(number)</li>
+        <li>findSquareOfNumbers(myArray) using map function</li>
+        <li>multiply(myArray) using reduce function</li>
+        <li>sumOfSquares(myArray) using reduce function</li>
+    </ol>
+
+    <script>
+
+        const foods = ["pizza", "burger", "fingerChips", "donuts", "springRoll"];
+        const numberArray = [12, 324, 213, 4, 2, 3, 45, 4234];
+        const myArray = [11, 34, 20, 5, 53, 16];
+
+
+        function slice(start, end) {
+            return foods.slice(start, end);
+        }
+
+        function spliced() {
+            let modifiedFood = [...foods];
+            modifiedFood.splice(2, 0, "noodles", "icecream");
+            return modifiedFood;
+        }
+
+        function isEven(number) {
+            return number % 2 === 0;
+        }
+
+        function isPrime(number) {
+            if (number < 2) return false;
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function checkNumber(numberArray, operation) {
+            return numberArray.filter(operation);
+        }
+
+        function reject(numberArray, operation) {
+            return numberArray.filter((item) => !operation(item));
+        }
+
+        function nonPrime(numberArray) {
+            return reject(numberArray, isPrime);
+        }
+
+        const isEvenUsingLambda = (number) => number % 2 === 0;
+
+        function square(number) {
+            return number * number;
+        }
+
+        function findSquareOfNumbers(myArray) {
+            return myArray.map(square);
+        }
+
+        function multiply(myArray) {
+            return myArray.reduce((acc, curr) => acc * curr, 1);
+        }
+
+        function sumOfSquares(myArray) {
+            return myArray.reduce((acc, curr) => acc + curr * curr, 0);
+        }
+    </script>
+</body>
+
+</html>
