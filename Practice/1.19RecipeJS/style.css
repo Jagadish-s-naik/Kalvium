@@ -1,55 +1,147 @@
-/* style.css Add this to the end of your CSS file to style the new buttons. */
+/* --- Base Styles (From Part 1) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Controls Section */
-.controls {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header (From Part 1) */
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Main Container (From Part 1) */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* =========================================
+   [PART 2 NEW] CONTROL BUTTON STYLES
+   ========================================= */
+#controls {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .control-group {
-  margin-bottom: 15px;
-}
-
-.control-group h3 {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
-/* Button Styles */
 button {
-  padding: 8px 16px;
-  border: 2px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border: 2px solid #667eea;
   background: white;
+  color: #667eea;
   border-radius: 20px;
   cursor: pointer;
-  font-family: inherit;
-  font-weight: 500;
-  color: #555;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
-  transform: translateY(-1px);
+  background: #f0f4ff;
 }
 
-/* Active State */
+/* Active State: Highlights the selected filter/sort */
 button.active {
-  background-color: #ff6b6b;
-  border-color: #ff6b6b;
+  background: #667eea;
   color: white;
-  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================= */
+
+/* Recipe Grid (From Part 1) */
+#recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Recipe Card (From Part 1) */
+.recipe-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card h3 {
+  color: #667eea;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-meta {
+  display: flex;
+  gap: 1rem;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.recipe-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Difficulty Badges (From Part 1) */
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.difficulty.easy {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.difficulty.medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.difficulty.hard {
+  background-color: #f8d7da;
+  color: #721c24;
 }
