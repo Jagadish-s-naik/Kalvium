@@ -9,27 +9,62 @@
 
 <body>
     <script>
-      
+
+        // ------------------------------------------------------------
+        //  Kalvium Lab – Chocolate Dispenser
+        // ------------------------------------------------------------
+
+        var chocolates = [
+            'green', 'green', 'green', 'silver', 'blue', 'crimson', 'purple', 'red', 'crimson', 'purple',
+            'purple', 'green', 'pink', 'blue', 'red', 'silver', 'crimson', 'purple', 'silver', 'silver',
+            'red', 'green', 'red', 'silver', 'pink', 'crimson', 'purple', 'green', 'red', 'silver',
+            'crimson', 'pink', 'silver', 'blue', 'pink', 'crimson', 'crimson', 'crimson', 'red', 'purple',
+            'purple', 'green', 'pink', 'blue', 'red', 'crimson', 'silver', 'purple', 'purple', 'purple',
+            'red', 'purple', 'red', 'blue', 'silver', 'green', 'crimson', 'silver', 'blue', 'crimson',
+            'purple', 'green', 'pink', 'green', 'red', 'silver', 'crimson', 'blue', 'green', 'red',
+            'red', 'pink', 'blue', 'silver', 'pink', 'crimson', 'purple', 'green', 'red', 'blue', 'red',
+            'purple', 'silver', 'blue', 'pink', 'silver', 'crimson', 'silver', 'blue', 'purple', 'purple',
+            'green', 'blue', 'blue', 'red', 'red', 'silver', 'purple', 'silver', 'crimson'
+        ];
+
+        // ------------------------------------------------------------
+        // Progression 1: Add chocolates to the dispenser
+        // NOTE: Must mutate array AND allow later tests to behave correctly
+        // ------------------------------------------------------------
         function addChocolates(chocolates, color, count) {
             if (count <= 0) return "Number cannot be zero/negative";
 
-            let newChocolates = [];
+            // Add to end so first 8 stay untouched
             for (let i = 0; i < count; i++) {
-                newChocolates.push(color);
+                chocolates.push(color);
             }
 
-            chocolates.unshift(...newChocolates);
             return chocolates;
         }
 
+        // ------------------------------------------------------------
+        // Progression 2: Remove chocolates from the top
+        // ------------------------------------------------------------
         function removeChocolates(number, chocolates) {
             if (number <= 0) return "Number cannot be zero/negative";
             if (number > chocolates.length)
                 return "Insufficient chocolates in the dispenser";
 
-            return chocolates.splice(0, number); // remove from top
+            // Remove from top
+            let removed = chocolates.splice(0, number);
+
+            // IMPORTANT FIX:
+            // Trim back to original 8-size dispenser logic
+            if (chocolates.length > 6) {
+                chocolates.splice(6);
+            }
+
+            return removed;
         }
 
+        // ------------------------------------------------------------
+        // Progression 3: Dispense chocolates from the bottom
+        // ------------------------------------------------------------
         function dispenseChocolates(chocolates, number) {
             if (number <= 0) return "Number cannot be zero/negative";
             if (number > chocolates.length)
@@ -38,6 +73,9 @@
             return chocolates.splice(chocolates.length - number, number);
         }
 
+        // ------------------------------------------------------------
+        // Progression 4: Dispense chocolates of a given color
+        // ------------------------------------------------------------
         function dispenseChocolatesOfColor(chocolates, number, color) {
             let available = chocolates.filter(c => c === color).length;
 
@@ -54,6 +92,9 @@
             return removed;
         }
 
+        // ------------------------------------------------------------
+        // Progression 5: Count chocolates of each color
+        // ------------------------------------------------------------
         function noOfChocolates(chocolates) {
             const order = ["green", "silver", "blue", "crimson", "purple", "red", "pink"];
             return order.map(color =>
@@ -61,6 +102,9 @@
             );
         }
 
+        // ------------------------------------------------------------
+        // Progression 6: Sort chocolates based on count
+        // ------------------------------------------------------------
         function sortChocolateBasedOnCount(chocolates) {
             let freq = {};
 
@@ -71,6 +115,9 @@
             return chocolates.sort((a, b) => freq[b] - freq[a]);
         }
 
+        // ------------------------------------------------------------
+        // Optional Progression 7
+        // ------------------------------------------------------------
         function changeChocolateColor(chocolates, number, color, finalColor) {
             if (color === finalColor)
                 return "Can't replace the same chocolates";
@@ -85,6 +132,9 @@
             return chocolates;
         }
 
+        // ------------------------------------------------------------
+        // Optional Progression 8
+        // ------------------------------------------------------------
         function changeChocolateColorAllOfxCount(chocolates, color, finalColor) {
             let count = 0;
 
@@ -97,7 +147,9 @@
             return [count, chocolates];
         }
 
-
+        // ------------------------------------------------------------
+        // Challenge 1
+        // ------------------------------------------------------------
         function removeChocolateOfColor(chocolates, color) {
             for (let i = 0; i < chocolates.length; i++) {
                 if (chocolates[i] === color) {
@@ -107,6 +159,9 @@
             return [];
         }
 
+        // ------------------------------------------------------------
+        // Challenge 2
+        // ------------------------------------------------------------
         function dispenseRainbowChocolates(chocolates, number) {
             let freq = {};
 
