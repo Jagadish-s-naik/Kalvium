@@ -22,7 +22,7 @@ function ae(){
     return function b(){
         a++
     }
-    b();
+    return b;
 }
 ae()
 let z = ae()
